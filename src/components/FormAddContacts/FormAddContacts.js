@@ -6,8 +6,8 @@ export const FormAddContacts = ({onSubmit}) => {
     const hendleSubmit = e => {
       e.preventDefault();
       const name = e.currentTarget.elements.name.value;
-      const number = e.currentTarget.elements.number.value;
-      onSubmit({name, number})
+      const phone = e.currentTarget.elements.number.value;
+      onSubmit({name, phone})
       // console.log(contacts)
       e.currentTarget.reset();
       

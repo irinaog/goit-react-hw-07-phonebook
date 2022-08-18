@@ -1,11 +1,11 @@
 import css from './FilterContacts.module.css';
-
 import { useDispatch,  } from 'react-redux';
-import { filter } from 'Redux/phoneBookSlice';
+import { filter } from 'Redux/phoneBookActions';
+
 
 export const FilterContacts = () => {
-
-    const dispath = useDispatch();
+   
+    const dispatch = useDispatch();
 
     return (<>
         <div className={css.filterContainer}>
@@ -15,9 +15,7 @@ export const FilterContacts = () => {
                 className={css.filterInput}
                 type="text"
                 name="filter"
-                onChange={(e) => {
-                    dispath(filter(e.currentTarget.value))
-                }}
+                onChange={(e)=>dispatch(filter(e.currentTarget.value))}
             ></input>
         </div>
     </>

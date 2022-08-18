@@ -10,11 +10,8 @@ export const ContactsListItem = ({ name, number, id }) => {
     
         <li className={css.contactItem} key={id}>
             <p className={css.contactName}>{name} {number} </p>
-            <button className={css.deleteBtn} onClick={() => {
-                console.log(id)
-                console.log(deleteContact(id))
-                dispatch(deleteContact(id))
-            }}>Delete</button>
+            <button className={css.deleteBtn} onClick={() =>  dispatch(deleteContact(id))
+            }>Delete</button>
         </li>
     )
 };

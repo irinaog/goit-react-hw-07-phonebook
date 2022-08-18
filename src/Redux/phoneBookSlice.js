@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, } from '@reduxjs/toolkit'
+import { fetchContacts } from './phoneBookOperation';
 
 const initialState = {
     items: [],
@@ -13,6 +14,13 @@ const contactSlice = createSlice({
         deleteContact(state, action) {state.items = state.items.filter(contact => contact.id !== action.payload)},
         filter(state, action) {state.filter = action.payload},
     },
+    extraReducers: {
+        [fetchContacts.fulfilled](state, action) {
+            return {
+                ...state,items:[...state.items,...action.payload  ]
+            }
+        }
+    }
 });
 
 export const { addContact, deleteContact, filter } = contactSlice.actions;
